@@ -1,6 +1,14 @@
 <?php
+/*
+$class = 'test';
+spl_autoload_register(function($class){
+	include 'classes/'.$class. '.class.1.php';
+});
+new test();
+*/
 if(!function_exists('classAutoLoader'))
-{
+{	
+	//自动加载最高版本的该类文件
 	function classAutoLoader($className)
 	{
 		$classFiles = array();
@@ -25,5 +33,13 @@ if(!function_exists('classAutoLoader'))
 		if( !class_exists($className) ) include( $classFile );
 	}
 }
+
 spl_autoload_register('classAutoLoader');
 new test();
+/**
+	输出结果：
+	1.不打开上面注释时：
+	this is test v2 class
+	2.打开上面注释时：
+	this is test v1 classthis is test v1 class
+*/
