@@ -51,7 +51,7 @@
                 if(isset($arr[$k])){
                     foreach($arr[$k] as $val){
                         $arr2[$pid][$k]['child'][$val['pid']][$val['id']] = $val;
-                        func($arr, $arr[$pid][$k]['child'], $val['pid']);
+                        func($arr, $arr2[$pid][$k]['child'], $val['pid']);
                     }
                 }
             }
